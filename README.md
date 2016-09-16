@@ -1,28 +1,30 @@
 # Website Optimization Project
 
-This game was developed after 'Website performance' and 'Browser rendering optimization' courses during [Udacity Front End Developer nanodegree](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001).
+For [this](https://dimberr.github.io/frontend-nanodegree-mobile-portfolio) some optimizations were applied after 'Website performance' and 'Browser rendering optimization' courses during [Udacity Front End Developer nanodegree](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001).
 
-## Optimizations for [index.html](dimberr.github.io/frontend-nanodegree-mobile-portfolio):
+## Optimizations for [index.html](https://dimberr.github.io/frontend-nanodegree-mobile-portfolio):
 * Optimized images
 * Inline CSS
 * Split CSS for print and mobile version to different files and load them using @media
 * Minified JS and added async to scripts Using Web Font Loader that defers the loading of Google Fonts until after other parts of the page have started to render
 
-Now it has more than 90 in Pagespeed Insights by Google
+Now it has more than [90](https://goo.gl/A9GFls) in Pagespeed Insights by Google
+Original not optimized site [here](http://udacity.github.io/pizza-perf/)
 
 
 
-## Optimizations for [pizza.html](dimberr.github.io/frontend-nanodegree-mobile-portfolio/views/pizza.html):
+## Optimizations for [pizza.html](https://dimberr.github.io/frontend-nanodegree-mobile-portfolio/views/pizza.html):
 * Render pizza if it only in viewport
 * Split Style recalculations and Layout (Fix for FSL)
 * Added requestAnimationFrame where it needed
 * Optimized images, added async for scripts
 * Inline CSS, minify JS and CSS
 
-Now it can be rendered with a consistent frame-rate at 60fps when scrolling
+Now it can be rendered with a consistent frame-rate at 60fps when scrolling and also has more than [90](https://goo.gl/KZXo6V) in Pagespeed Insights
+Original not optimized site [here](http://udacity.github.io/pizza-perf/views/pizza.html)
 
 
-### Checkout my optimizations for [news-aggregator](dimberr.github.io/frontend-nanodegree-news-aggregator/)
+### Checkout my optimizations for [news-aggregator](https://dimberr.github.io/frontend-nanodegree-news-aggregator/)
 
 
 ### Optimization Tips and Tricks

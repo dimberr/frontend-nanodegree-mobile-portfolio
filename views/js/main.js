@@ -207,8 +207,8 @@ var resizePizzas = function(size) {
     console.log("Time to resize pizzas: " + timeToResize[timeToResize.length - 1].duration + "ms");
 };
 window.performance.mark("mark_start_generating");
+var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
-    var pizzasDiv = document.getElementById("randomPizzas");
     pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 window.performance.mark("mark_end_generating");
@@ -234,10 +234,10 @@ function updatePositions() {
     var scrollTop = document.body.scrollTop;
     var phaseArr = [];
     //get pizzas that visible, if beoynd the screen -> set hidden for not rendering it
-    for (var i = 0; i < items.length; i++) phaseArr[i] = Math.sin((scrollTop / 1250) + (i % 5));
+    for (var i = 0; i < 5; i++) phaseArr.push(Math.sin(scrollTop / 1250 + i)*100);
     var clientWidth = document.documentElement.clientWidth;
     for (var k = 0; k < items.length; k++) {
-        var leftPos = items[k].basicLeft + 100 * phaseArr[k];
+        var leftPos = items[k].basicLeft + phaseArr[k%5];
         if ((leftPos >= clientWidth) || (leftPos < -73.333)) {
             items[k].style.left = leftPos + 'px';
             items[k].style.visibility = 'hidden';
