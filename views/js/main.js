@@ -206,12 +206,15 @@ var resizePizzas = function(size) {
     var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
     console.log("Time to resize pizzas: " + timeToResize[timeToResize.length - 1].duration + "ms");
 };
+
+
 window.performance.mark("mark_start_generating");
-var pizzasDiv = document.getElementById("randomPizzas");
-for (var i = 2; i < 100; i++) {
-    pizzasDiv.appendChild(pizzaElementGenerator(i));
-}
+var pizzasFrag = document.createDocumentFragment();
+for (var i = 2; i < 100; i++) pizzasFrag.appendChild(pizzaElementGenerator(i));
+document.getElementById("randomPizzas").appendChild(pizzasFrag);
 window.performance.mark("mark_end_generating");
+
+
 window.performance.measure("measure_pizza_generation", "mark_start_generating", "mark_end_generating");
 var timeToGenerate = window.performance.getEntriesByName("measure_pizza_generation");
 console.log("Time to generate pizzas on load: " + timeToGenerate[0].duration + "ms");
@@ -230,14 +233,14 @@ function logAverageFrame(times) {
 function updatePositions() {
     frame++;
     window.performance.mark("mark_start_frame");
-    var items = document.querySelectorAll('.mover');
+    var items = document.getElementsByClassName('mover');
     var scrollTop = document.body.scrollTop;
     var phaseArr = [];
     //get pizzas that visible, if beoynd the screen -> set hidden for not rendering it
-    for (var i = 0; i < 5; i++) phaseArr.push(Math.sin(scrollTop / 1250 + i)*100);
+    for (var i = 0; i < 5; i++) phaseArr.push(Math.sin(scrollTop / 1250 + i) * 100);
     var clientWidth = document.documentElement.clientWidth;
     for (var k = 0; k < items.length; k++) {
-        var leftPos = items[k].basicLeft + phaseArr[k%5];
+        var leftPos = items[k].basicLeft + phaseArr[k % 5];
         if ((leftPos >= clientWidth) || (leftPos < -73.333)) {
             items[k].style.left = leftPos + 'px';
             items[k].style.visibility = 'hidden';
@@ -260,11 +263,13 @@ document.addEventListener('DOMContentLoaded', function() {
     var cols = 8;
     var s = 256;
     var clientHeight = document.documentElement.clientHeight;
+    var docFrag = document.createDocumentFragment();
+    var elem;
     //in original version was create pizzas even if it won't be visible ever. Fix that
     for (var i = 0; i < 200; i++) {
+        elem = document.createElement('img');
         var top = (Math.floor(i / cols) * s);
         if (top <= clientHeight) {
-            var elem = document.createElement('img');
             elem.className = 'mover';
             elem.src = "images/pizza.png";
             elem.style.height = "100px";
@@ -272,8 +277,9 @@ document.addEventListener('DOMContentLoaded', function() {
             elem.basicLeft = (i % cols) * s;
             elem.basicTop = top;
             elem.style.top = elem.basicTop + 'px';
-            document.querySelector("#movingPizzas1").appendChild(elem);
+            docFrag.appendChild(elem);
         } else {
+            document.getElementById("movingPizzas1").appendChild(docFrag);
             break;
         }
     }
