@@ -13,6 +13,7 @@ Now it has more than [90](https://goo.gl/A9GFls) in Pagespeed Insights by Google
 
 
 
+
 ## Optimizations for [pizza.html](https://dimberr.github.io/frontend-nanodegree-mobile-portfolio/views/pizza.html):
 Changes to original not optimized [page](http://udacity.github.io/pizza-perf/views/pizza.html)
 * Render pizza if it is only in viewport
@@ -25,10 +26,11 @@ Now it can be rendered with a consistent frame-rate at 60fps when scrolling and 
 
 
 
-### Checkout my optimizations for [news-aggregator](https://dimberr.github.io/frontend-nanodegree-news-aggregator/)
+
+### Check out my optimizations for [news-aggregator](https://dimberr.github.io/frontend-nanodegree-news-aggregator/)
 
 
-### Optimization Tips and Tricks
+#### Optimization Tips and Tricks
 * [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
 * [Analyzing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "analyzing crp")
 * [Optimizing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path.html "optimize the crp!")
